@@ -1,6 +1,5 @@
-
-# hw3-Fariborz-in-Quarantine
-[tahw7-game Documentaiton](https://docs.google.com/document/d/1H1k_2Is_pshtb6KgJ_tjcVNOo8BBcSXA_mnDVM62dcc/edit?usp=sharing)
+# hw8-death-arena
+[hw8-death-arena Documentaiton](https://docs.google.com/document/d/1H1k_2Is_pshtb6KgJ_tjcVNOo8BBcSXA_mnDVM62dcc/edit?usp=sharing)
 
 
 <ul>
