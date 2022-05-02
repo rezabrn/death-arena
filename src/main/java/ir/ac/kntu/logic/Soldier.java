@@ -6,7 +6,7 @@ public class Soldier {
     private int damage;
     private final Gun gun;
 
-    public Soldier(String id, int health, int damage, Gun gun){
+    public Soldier(String id, int health, int damage, Gun gun) {
         this.id = id;
         this.health = health;
         this.damage = damage;
@@ -17,10 +17,11 @@ public class Soldier {
         return this.id;
     }
 
-    public int getHealth(){
+    public int getHealth() {
         return this.health;
     }
-    public int getDamage(){
+
+    public int getDamage() {
         return this.damage;
     }
 

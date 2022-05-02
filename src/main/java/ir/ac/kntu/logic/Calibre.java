@@ -1,20 +1,14 @@
 package ir.ac.kntu.logic;
 
 public enum Calibre {
-    FIVE(5 ,15, 0),TEN(10, -10, 5);
+    FIVE(15, 0), TEN(-10, 10);
 
-    private final int name;
     private final int accuracy;
     private final int power;
 
-    Calibre(int name, int accuracy, int power) {
-        this.name = name;
+    Calibre(int accuracy, int power) {
         this.accuracy = accuracy;
         this.power = power;
-    }
-
-    public int getName() {
-        return name;
     }
 
     public int getAccuracy() {

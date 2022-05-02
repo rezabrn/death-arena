@@ -6,7 +6,7 @@ public class Gun {
     private int accuracy;
     private int power;
 
-    public Gun (Calibre calibre, String name, int accuracy, int power) {
+    public Gun(Calibre calibre, String name, int accuracy, int power) {
         this.calibre = calibre;
         this.name = name;
         this.accuracy = accuracy + calibre.getAccuracy();
@@ -36,5 +36,5 @@ public class Gun {
     public void setPower(int power) {
         this.power = power;
     }
-    
+
 }

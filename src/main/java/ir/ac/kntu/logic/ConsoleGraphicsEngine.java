@@ -5,14 +5,16 @@ import java.util.*;
 
 public class ConsoleGraphicsEngine implements GraphicsEngine {
     Director director;
+
     @Override
-    public void initialize(List<Soldier> groupA, List<Soldier> groupB, Soldier currentASoldier, Soldier currentBSoldier, Attack attack, int turn) {
-        
+    public void initialize(List<Soldier> groupA, List<Soldier> groupB, Soldier currentASoldier, Soldier currentBSoldier,
+            BattleField battleField, int turn) {
+
         System.out.println("______________________________ Group A ______________________________");
         printGroup(groupA, currentASoldier);
 
         if (currentASoldier != null && currentBSoldier != null) {
-            visualizeFight(currentASoldier, currentBSoldier, attack);
+            visualizeFight(currentASoldier, currentBSoldier, battleField);
         } else {
             System.out.println("\n\n");
         }
@@ -24,22 +26,26 @@ public class ConsoleGraphicsEngine implements GraphicsEngine {
     }
 
     @Override
-    public void visualizeFight(Soldier currentASoldier, Soldier currentBSoldier, Attack attack) {
+    public void visualizeFight(Soldier currentASoldier, Soldier currentBSoldier, BattleField battleField) {
         System.out.println("\n");
         System.out.println("                               ~ARENA~");
         System.out.println("                               Soldier A");
         System.out.println(currentASoldier.toString() + "\n\n");
-            if (attack.isHitsA()) {
-                System.out.println("Soldier A attacks ~ AccuracyRoll:" + attack.getAccuracyRollA() + " ~" + hitAttackNote("A") + attack.getDmgA() + " DMG");
-            } else {
-                System.out.println("Soldier A attacks ~ AccuracyRoll:" + attack.getAccuracyRollA() + " ~" + missedAttackNote());
-            }
-            if (attack.isHitsB()) {
-                System.out.println("Soldier B attacks ~ AccuracyRoll:" + attack.getAccuracyRollA() + " ~" + hitAttackNote("B") + attack.getDmgB() + " DMG");
-            } else {
-                System.out.println("Soldier B attacks ~ AccuracyRoll:" + attack.getAccuracyRollA() + " ~" + missedAttackNote());
-            }
-            System.out.println("\n\n" + currentBSoldier.toString());
+        if (battleField.isHitsA()) {
+            System.out.println("Soldier A attacks ~ AccuracyRoll:" + battleField.getAccuracyRollA() + " ~"
+                    + hitAttackNote("A") + battleField.getDamageA() + " DMG");
+        } else {
+            System.out.println(
+                    "Soldier A attacks ~ AccuracyRoll:" + battleField.getAccuracyRollA() + " ~" + missedAttackNote());
+        }
+        if (battleField.isHitsB()) {
+            System.out.println("Soldier B attacks ~ AccuracyRoll:" + battleField.getAccuracyRollB() + " ~"
+                    + hitAttackNote("B") + battleField.getDamageB() + " DMG");
+        } else {
+            System.out.println(
+                    "Soldier B attacks ~ AccuracyRoll:" + battleField.getAccuracyRollB() + " ~" + missedAttackNote());
+        }
+        System.out.println("\n\n" + currentBSoldier.toString());
 
         System.out.println("                               Soldier B");
         System.out.println("                               ~ARENA~\n\n");
@@ -60,7 +66,8 @@ public class ConsoleGraphicsEngine implements GraphicsEngine {
     }
 
     @Override
-    public void visualizeVictoryCondition(Director.VictoryState victoryState, List<Soldier> groupA, List<Soldier> groupB) {
+    public void visualizeVictoryCondition(Director.VictoryState victoryState, List<Soldier> groupA,
+            List<Soldier> groupB) {
         switch (victoryState) {
             case WIN_A:
                 System.out.println("\n    Group A Win");

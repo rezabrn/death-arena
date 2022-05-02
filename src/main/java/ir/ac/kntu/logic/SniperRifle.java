@@ -15,19 +15,8 @@ public class SniperRifle extends Gun {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        SniperRifle other = (SniperRifle) obj;
-        return scope == other.scope;
-    }
-
-    @Override
     public String toString() {
-        return " |Gun~" + getName() + (scope ? "-scope" : "      ") + " |Acc~" + getAccuracy() + "%" + " |Calibre~" + (getCalibre() == Calibre.FIVE ? 5 : 10) + "mm";
+        return " |Gun~" + getName() + (scope ? "-scope" : "      ") + " |Acc~" + getAccuracy() + "%" + " |Calibre~"
+                + (getCalibre() == Calibre.FIVE ? 5 : 10) + "mm";
     }
 }
