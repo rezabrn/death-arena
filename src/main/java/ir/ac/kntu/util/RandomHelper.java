@@ -1,4 +1,5 @@
 package ir.ac.kntu.util;
+
 import java.util.Random;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Random;
  */
 public final class RandomHelper {
 
-    private static final Random RANDOM_GENERATOR = new Random(300);
+    private static final Random RANDOM_GENERATOR = new Random();
 
     private RandomHelper() {
 
@@ -27,5 +28,9 @@ public final class RandomHelper {
 
     public static int nextInt(int bound) {
         return RANDOM_GENERATOR.nextInt(bound);
+    }
+
+    public static int nextInt(int first, int last) {
+        return first + RANDOM_GENERATOR.nextInt(last - first + 1);
     }
 }
