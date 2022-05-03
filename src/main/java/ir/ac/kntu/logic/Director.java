@@ -46,15 +46,14 @@ public class Director {
     }
 
     public void startGameLoop() {
-        int turn = 0;
-        graphicsEngine.initialize(groupA, groupB, currentASoldier, currentBSoldier, battleField, turn);
+        graphicsEngine.initialize(groupA, groupB, currentASoldier, currentBSoldier, battleField);
         while (victoryState.equals(VictoryState.NOT_FINISHED)) {
             currentASoldier = groupA.get(RandomHelper.nextInt(groupA.size()));
             currentBSoldier = groupB.get(RandomHelper.nextInt(groupB.size()));
 
             battleField = new BattleField(currentASoldier, currentBSoldier);
-            turn++;
-            graphicsEngine.initialize(groupA, groupB, currentASoldier, currentBSoldier, battleField, turn);
+
+            graphicsEngine.initialize(groupA, groupB, currentASoldier, currentBSoldier, battleField);
 
             currentASoldier.setDamage(currentASoldier.getDamage() + battleField.getDamageB());
             currentASoldier.setHealth(currentASoldier.getHealth() - battleField.getDamageB());
@@ -71,9 +70,9 @@ public class Director {
             }
 
             if (groupA.size() == 0) {
-                victoryState = VictoryState.WIN_A;
-            } else if (groupB.size() == 0) {
                 victoryState = VictoryState.WIN_B;
+            } else if (groupB.size() == 0) {
+                victoryState = VictoryState.WIN_A;
             }
             graphicsEngine.visualizeVictoryCondition(victoryState, groupA, groupB);
         }

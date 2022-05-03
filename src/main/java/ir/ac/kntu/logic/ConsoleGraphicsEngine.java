@@ -6,9 +6,11 @@ import java.util.*;
 public class ConsoleGraphicsEngine implements GraphicsEngine {
     Director director;
 
+    int turn = 0;
+
     @Override
     public void initialize(List<Soldier> groupA, List<Soldier> groupB, Soldier currentASoldier, Soldier currentBSoldier,
-            BattleField battleField, int turn) {
+            BattleField battleField) {
 
         System.out.println("______________________________ Group A ______________________________");
         printGroup(groupA, currentASoldier);
@@ -23,6 +25,7 @@ public class ConsoleGraphicsEngine implements GraphicsEngine {
         System.out.println("______________________________ Group B ______________________________");
         System.out.println();
         System.out.println("turn: " + turn);
+        turn++;
     }
 
     @Override
